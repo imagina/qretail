@@ -32,13 +32,13 @@ export default {
             },
             {
               name: 'purchasePrice',
-              label: this.$tr('iretail.cms.form.purchasePrice'),
+              label: this.$tr('iretail.cms.purchasePrice'),
               field: 'purchasePrice',
               align: 'left',
               format: val => '$' + this.$trn(val || 0)
             },
             {
-              name: 'salePrice', label: this.$tr('iretail.cms.form.salePrice'),
+              name: 'salePrice', label: this.$tr('iretail.cms.salePrice'),
               field: 'salePrice', align: 'left', format: val => '$' + this.$trn(val || 0)
             },
             {

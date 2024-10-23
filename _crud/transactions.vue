@@ -32,7 +32,7 @@ export default {
             type: 'select',
             required: true,
             props: {
-              label: this.$tr('isite.cms.label.item') + '*'
+              label: this.$tr('iretail.cms.item') + '*'
             },
             loadOptions: {
               apiRoute: 'apiRoutes.qretail.items',
@@ -47,7 +47,7 @@ export default {
             type: 'select',
             required: true,
             props: {
-              label: this.$tr('isite.cms.label.type') + '*'
+              label: this.$tr('isite.cms.form.type') + '*'
             },
             loadOptions: {
               apiRoute: 'apiRoutes.qretail.types'

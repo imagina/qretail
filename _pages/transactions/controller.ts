@@ -20,12 +20,12 @@ export default function controller (props: any, emit: any)
         extraActions: proxy.$hasAccess('iretail.transactions.create') ? ['new'] : []
       },
       read: {
-        title: i18n.trp('iretail.cms.transaction'),
+        title: i18n.trp('iretail.cms.sidebar.adminTransactions'),
         columns: [
           { name: 'id', field: 'id', label: 'ID' },
           {
             name: 'item',
-            label: i18n.tr('isite.cms.form.item'),
+            label: i18n.tr('iretail.cms.item'),
             field: 'item',
             align: 'left',
             format: val => val?.title ?? '-'
@@ -39,7 +39,7 @@ export default function controller (props: any, emit: any)
           },
           {
             name: 'quantity',
-            label: i18n.tr('isite.cms.quantity'),
+            label: i18n.tr('isite.cms.form.quantity'),
             field: 'quantity',
             align: 'left'
           },
@@ -52,7 +52,7 @@ export default function controller (props: any, emit: any)
           },
           {
             name: 'total',
-            label: i18n.tr('isite.cms.total'),
+            label: 'Total',
             field: 'total',
             align: 'left',
             format: (val, row) =>
@@ -110,7 +110,7 @@ export default function controller (props: any, emit: any)
             type: 'select',
             quickFilter: true,
             props: {
-              label: i18n.tr('isite.cms.item'),
+              label: i18n.tr('iretail.cms.item'),
               clearable: true
             },
             loadOptions: {
