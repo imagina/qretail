@@ -48,7 +48,7 @@ export default function controller (props: any, emit: any)
             label: i18n.tr('isite.cms.label.price'),
             field: 'price',
             align: 'left',
-            format: val => '$' + i18n.trn(val),
+            format: val => '$' + i18n.trn(val)
           },
           {
             name: 'total',
@@ -61,7 +61,11 @@ export default function controller (props: any, emit: any)
                 { color: '#007bff', icon: 'fal fa-check-square' } :
                 { color: '#f39c12', icon: 'fal fa-hourglass-half' };
 
-              return `<i class="${config.icon}" style="color: ${config.color}" /> <span>$ ${i18n.trn(val)}</span>`;
+              let pockets = Array.from(new Set(row.transactions.map(item => item.toPocket?.title ?? '-')))
+                .join(',');
+
+              return `<div style="color: ${config.color}"><i class="${config.icon} q-mr-sm" ></i><span>$ ${i18n.trn(val)}</span></div>
+                      <div class="text-grey-8" style="font-size: 9px">${pockets}</div>`;
             },
             dynamicField: row =>
             {
@@ -91,10 +95,10 @@ export default function controller (props: any, emit: any)
             label: i18n.tr('isite.cms.form.createdAt'),
             field: 'createdAt',
             align: 'left',
-            format: val => i18n.trd(val, {type: 'long'})
+            format: val => i18n.trd(val, { type: 'long' })
           }
         ],
-        requestParams: { include: 'item,transactions' },
+        requestParams: { include: 'item,transactions.toPocket' },
         filters: {
           date: {
             value: null,
